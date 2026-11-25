@@ -2,11 +2,16 @@
   "name": "task-management-app",
   "version": "1.0.0",
   "description": "A comprehensive task management application",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "node build.js",
-    "test": "node test.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "client": "cd client && npm start",
+    "client:install": "cd client && npm install",
+    "install:all": "npm install && npm run client:install",
+    "build": "cd client && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "task management",
@@ -18,10 +23,12 @@
   "dependencies": {
     "express": "^4.18.2",
     "mongoose": "^6.12.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.0",
-    "jest": "^29.0.0"
+    "jest": "^29.0.0",
+    "concurrently": "^8.0.0"
   }
 }
